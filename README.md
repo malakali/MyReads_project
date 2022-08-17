@@ -1,14 +1,14 @@
 # MyReads Project
 
 
-## TL;DR
+## Installing Using NPM
 
 To get started developing right away:
 
 - install all project dependencies with `npm install`
 - start the development server with `npm start`
 
-or using Yarn 
+## Installing Using Yarn
 
 - install all project dependencies with `yarn install`
 - start the development server with `yarn start`
