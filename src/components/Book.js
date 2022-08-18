@@ -19,8 +19,8 @@ const Book = ({  bookInfo ,UpdateShelfOfBook}) => {
             }}
           ></div>
           <div className="book-shelf-changer">
-            <select defaultValue={bookInfo.shelf} onChange={handleChangeShelf}>
-              <option value="none" disabled>
+            <select value={bookInfo.shelf} onChange={handleChangeShelf}>
+              <option value="moveTo" disabled>
                 Move to...
               </option>
               <option value="currentlyReading">Currently Reading</option>

@@ -18,23 +18,25 @@ function App() {
       const res = await BooksAPI.getAll();
       setBooks(res);
     };
+
     getAllBooks();
+
+    return () => {
+      setBooks([]);
+    }
+     
   }, []);
 
   const UpdateShelfOfBook = (Book, shelf) => {
-    const UpdatedBooks = Books.map((book) => {
-      if (book.id === Book.id) {
-        Book.shelf = shelf;
-      }
-      return book;
-    });
-    setBooks(UpdatedBooks);
 
     const Update = async () => {
+      const ExeculdeBook = Books.filter(b=>b.id !== Book.id);
+      Book.shelf=shelf;
+      setBooks(ExeculdeBook.concat(Book));
       await BooksAPI.update(Book, shelf);
     };
-
-    Update();
+     Update();
+     
   };
 
   return (

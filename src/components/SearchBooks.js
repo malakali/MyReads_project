@@ -12,6 +12,8 @@ const SearchBooks = ({ Books, UpdateShelfOfBook }) => {
     setquery(event.target.value);
     UpdateSearch(event.target.value.trim());
   };
+  const NotFoundSearch =
+  query.length > 0 ? "No Search found :(" : "";
 
   const UpdateSearch = (inputSearch) => {
     if (inputSearch.length === 0) {
@@ -53,16 +55,16 @@ const SearchBooks = ({ Books, UpdateShelfOfBook }) => {
         </div>
       </div>
       <div className="search-books-results">
-        <ol className="books-grid">
-          { searchBooks.map((b) => (
+        {(searchBooks.length>0)?<ol className="books-grid">
+          {  searchBooks.map((b) => (
             <Book
               key={b.id}
               bookInfo={b}
               UpdateShelfOfBook={UpdateShelfOfBook}
             />
           ))}
-        </ol>
-      </div>
+        </ol>:NotFoundSearch}
+       </div>
     </div>
   );
 };
